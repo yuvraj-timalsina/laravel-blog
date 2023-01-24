@@ -1,9 +1,10 @@
 @extends('layouts.blog')
 @section('title')
-    Blog Website
+    Category - {{ $category->name }}
 @endsection
 <nav class="navbar navbar-expand-lg navbar-light navbar-stick-dark" data-navbar="sticky">
     <div class="container">
+        
         <div class="navbar-left">
             <button class="navbar-toggler" type="button">&#9776;</button>
             <a class="navbar-brand" href="{{route('welcome')}}">
@@ -25,10 +26,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 mx-auto">
-                    <h1>Latest Blog Posts</h1>
+                    <h1>
+                        {{ $category->name }}
+                    </h1>
                     <p class="lead-2 opacity-90 mt-6">Read and get updated on how we progress</p>
+                
                 </div>
             </div>
+        
         </div>
     </header>
 @endsection
@@ -55,10 +60,14 @@
                                      No result found for query <strong>{{request()->query('search')}}</strong>.
                                 </p>
                             @endforelse
+                        
                         </div>
                         {{ $posts->appends(['search'=>request()->query('search')])->links() }}
                     </div>
-                   @include('partials.sidebar')
+                    
+                    
+                @include('partials.sidebar')
+                
                 </div>
             </div>
         </div>

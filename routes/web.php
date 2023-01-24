@@ -23,6 +23,8 @@
     
     Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
     Route::get('/blogs/{post}', [PostsController::class, 'show'])->name('blog.show');
+    Route::get('/blogs/categories/{category}', [PostsController::class, 'category'])->name('blog.category');
+    Route::get('/blogs/tags/{tag}', [PostsController::class, 'tag'])->name('blog.tag');
     
     Auth::routes();
     

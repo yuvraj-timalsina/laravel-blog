@@ -53,4 +53,16 @@ class Post extends Model
     {
         return in_array($name, $this->tags->pluck('name')->toArray());
     }
+    
+    
+    public function scopeSearched($query)
+    {
+        $search = request()->query('search');
+        
+        if (!$search) {
+            return $query;
+        }
+        
+        return $query->where('title', 'LIKE', "%{$search}%");
+    }
 }

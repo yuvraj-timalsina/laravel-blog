@@ -10,21 +10,10 @@
     {
         public function index()
         {
-            $search = request()->query('search');
-            $posts = Post::with('category');
-            
-            if ($search) {
-                $posts = $posts->where('title', 'LIKE', "%{$search}%")->simplePaginate(4);
-            }
-            else {
-                $posts = $posts->simplePaginate(4);
-            }
-            
             return view('welcome', [
                 'categories' => Category::all(),
                 'tags' => Tag::all(),
-                'posts' => $posts,
-                'search' => $search,
+                'posts' => Post::with('category')->searched()->simplePaginate(4),
             ]);
         }
     }

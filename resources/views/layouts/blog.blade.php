@@ -73,6 +73,6 @@
     <!-- Scripts -->
     <script src="{{ asset('js/page.min.js') }}s"></script>
     <script src="{{ asset('js/script.js') }}"></script>
-
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-63d014227bd9296e"></script>
 </body>
 </html>
