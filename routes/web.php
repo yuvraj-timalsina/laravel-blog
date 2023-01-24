@@ -21,7 +21,7 @@
     |
     */
     
-    Route::get('/', [WelcomeController::class, 'index'])->name('index');
+    Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
     Route::get('/blogs/{post}', [PostsController::class, 'show'])->name('blog.show');
     
     Auth::routes();
@@ -34,7 +34,7 @@
             'tags' => TagController::class,
             'posts' => PostController::class,
         ]);
-        Route::get('home', [HomeController::class, 'index'])->name('home');
+        Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');
     });
     
     Route::controller(UserController::class)->middleware(['auth', 'admin'])

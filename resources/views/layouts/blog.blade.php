@@ -28,13 +28,13 @@
             
             <div class="navbar-left">
                 <button class="navbar-toggler" type="button">&#9776;</button>
-                <a class="navbar-brand" href="{{route('index')}}">
+                <a class="navbar-brand" href="{{route('welcome')}}">
                     <img class="logo-dark" src="{{ asset('img/logo-dark.png') }}" alt="logo">
                     <img class="logo-light" src="{{ asset('img/logo-light.png') }}" alt="logo">
                 </a>
             </div>
             @auth
-                <a class="btn btn-xs btn-round btn-success" href="{{route('home')}}">Dashboard</a>
+                <a class="btn btn-xs btn-round btn-success" href="{{route('dashboard')}}">Dashboard</a>
             @endauth
             @guest
                 <a class="btn btn-xs btn-round btn-success" href="{{route('login')}}">Login</a>
@@ -54,7 +54,7 @@
             <div class="row gap-y align-items-center">
                 
                 <div class="col-6 col-lg-6">
-                    <a href="{{route('index')}}"><img src="{{ asset('img/logo-dark.png') }}" alt="logo"></a>
+                    <a href="{{route('welcome')}}"><img src="{{ asset('img/logo-dark.png') }}" alt="logo"></a>
                 </div>
                 
                 <div class="col-6 col-lg-6 text-right order-lg-last">

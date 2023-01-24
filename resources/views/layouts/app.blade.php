@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'CMS') }}</title>
+    <title>{{ config('app.name', 'Dashboard') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -24,8 +24,8 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ route('index') }}">
-                    {{ config('app.name', 'CMS') }}
+                <a class="navbar-brand" href="{{ route('dashboard') }}">
+                    {{ config('app.name', 'Dashboard') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -87,9 +87,10 @@
                 <div class="row justify-content-center">
                     @auth
                         <div class="col-lg-4">
-                            <ul class="list-group">
+                            
+                            <ul class="list-group mt-5">
                                 <li class="list-group-item">
-                                    <a href="{{ route('home') }}">Home</a>
+                                    <a href="{{ route('dashboard') }}">Dashboard</a>
                                 </li>
                                 @if (auth()->user()->isAdmin())
                                     <li class="list-group-item">

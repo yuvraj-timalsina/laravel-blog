@@ -2,25 +2,25 @@
 @section('title')
     Blog
 @endsection
- <nav class="navbar navbar-expand-lg navbar-light navbar-stick-dark" data-navbar="sticky">
-        <div class="container">
-            
-            <div class="navbar-left">
-                <button class="navbar-toggler" type="button">&#9776;</button>
-                <a class="navbar-brand" href="{{route('index')}}">
-                    <img class="logo-dark" src="{{ asset('img/logo-dark.png') }}" alt="logo">
-                    <img class="logo-light" src="{{ asset('img/logo-light.png') }}" alt="logo">
-                </a>
-            </div>
-            @auth
-                <a class="btn btn-xs btn-round btn-success" href="{{route('home')}}">Dashboard</a>
-            @endauth
-            @guest
-                <a class="btn btn-xs btn-round btn-success" href="{{route('login')}}">Login</a>
-            @endguest
+<nav class="navbar navbar-expand-lg navbar-light navbar-stick-dark" data-navbar="sticky">
+    <div class="container">
         
+        <div class="navbar-left">
+            <button class="navbar-toggler" type="button">&#9776;</button>
+            <a class="navbar-brand" href="{{route('welcome')}}">
+                <img class="logo-dark" src="{{ asset('img/logo-dark.png') }}" alt="logo">
+                <img class="logo-light" src="{{ asset('img/logo-light.png') }}" alt="logo">
+            </a>
         </div>
-    </nav><!-- /.navbar -->
+        @auth
+            <a class="btn btn-xs btn-round btn-success" href="{{route('dashboard')}}">Dashboard</a>
+        @endauth
+        @guest
+            <a class="btn btn-xs btn-round btn-success" href="{{route('login')}}">Login</a>
+        @endguest
+    
+    </div>
+</nav><!-- /.navbar -->
 @section('header')
     <header class="header text-center text-white" style="background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);">
         <div class="container">
@@ -43,7 +43,7 @@
                     
                     <div class="col-md-8 col-xl-9">
                         <div class="row gap-y">
-                            @foreach($posts as $post)
+                            @forelse($posts as $post)
                                 <div class="col-md-6">
                                     <div class="card border hover-shadow-6 mb-6 d-block">
                                         <a href="{{route('blog.show', $post)}}"><img class="card-img-top" src="{{ asset('/storage/'.$post->featured_image) }}" alt="Card image cap"></a>
@@ -53,10 +53,15 @@
                                         </div>
                                     </div>
                                 </div>
-                            @endforeach
+                            @empty
+                                <div class="text-center">
+                                    <img src="{{ asset('media/no-data.png') }}" alt="" width="225px">
+                                    <h3> No result found for query <strong>{{$search}}</strong>.</h3>
+                                </div>
+                            @endforelse
                         
                         </div>
-                        {{ $posts->links() }}
+                        {{ $posts->appends(['search'=>request()->query('search')])->links() }}
                     </div>
                     
                     
@@ -64,8 +69,8 @@
                         <div class="sidebar px-4 py-md-0">
                             
                             <h6 class="sidebar-title">Search</h6>
-                            <form class="input-group" target="#" method="GET">
-                                <input type="text" class="form-control" name="s" placeholder="Search">
+                            <form class="input-group" action="{{route('welcome')}}" method="GET">
+                                <input type="text" class="form-control" name="search" placeholder="Search" value="{{$search}}">
                                 <div class="input-group-addon">
                                     <span class="input-group-text"><i class="ti-search"></i></span>
                                 </div>
@@ -120,7 +125,7 @@
                             
                             <h6 class="sidebar-title">About</h6>
                             <p class="small-3">TheSaaS is a responsive, professional, and multipurpose SaaS, Software, Startup and WebApp landing template powered by Bootstrap 4. TheSaaS is a powerful and super flexible tool for any kind of landing pages.</p>
-                            
+                        
                         </div>
                     </div>
                 
