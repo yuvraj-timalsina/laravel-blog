@@ -56,12 +56,7 @@
                             @endforeach
                         
                         </div>
-                        
-                        
-                        <nav class="flexbox mt-30">
-                            <a class="btn btn-white disabled"><i class="ti-arrow-left fs-9 mr-4"></i> Newer</a>
-                            <a class="btn btn-white" href="#">Older <i class="ti-arrow-right fs-9 ml-4"></i></a>
-                        </nav>
+                        {{ $posts->links() }}
                     </div>
                     
                     
