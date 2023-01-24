@@ -19,7 +19,7 @@
         {
             return view('blog.category', [
                 'category' => $category,
-                'posts' => $category->posts()->searched()->simplePaginate(4),
+                'posts' => $category->posts()->latest()->searched()->simplePaginate(4),
                 'categories' => Category::all(),
                 'tags' => Tag::all(),
             ]);
@@ -30,7 +30,7 @@
         {
             return view('blog.tag', [
                 'tag' => $tag,
-                'posts' => $tag->posts()->searched()->simplePaginate(4),
+                'posts' => $tag->posts()->latest()->searched()->simplePaginate(4),
                 'tags' => Tag::all(),
                 'categories' => Category::all(),
             ]);

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="card">
+    <div class="card mt-5">
         <div class="card-header">{{ __('My Profile') }}</div>
 
         <div class="card-body">

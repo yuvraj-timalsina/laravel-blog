@@ -13,7 +13,7 @@
             return view('welcome', [
                 'categories' => Category::all(),
                 'tags' => Tag::all(),
-                'posts' => Post::with('category')->searched()->simplePaginate(4),
+                'posts' => Post::with('category')->latest()->searched()->simplePaginate(4),
             ]);
         }
     }
