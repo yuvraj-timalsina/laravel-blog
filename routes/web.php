@@ -39,4 +39,5 @@ Route::controller(UserController::class)->middleware(['auth', 'admin'])
         Route::get('/', 'index')->name('users.index');
         Route::post('{user}/make-admin', 'makeAdmin')->name('users.make-admin');
         Route::get('profile', 'edit')->name('users.edit-profile');
+        Route::put('profile', 'update')->name('users.update-profile');
     });
