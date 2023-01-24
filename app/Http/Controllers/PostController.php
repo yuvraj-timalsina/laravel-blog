@@ -57,13 +57,7 @@ class PostController extends Controller
     {
         $image = $request->featured_image->store('posts');
 
-        $post = Post::create([
-            'user_id' => auth()->user()->id,
-            'category_id' => $request->category_id,
-            'title' => $request->title,
-            'content' => $request->content,
-            'featured_image' => $image,
-        ]);
+        $post = Post::create($request->validated() + ['user_id' => auth()->user()->id, 'featured_image'=>$image]);
 
         $attachableTags = [];
         foreach ($request->tags as $tag) {

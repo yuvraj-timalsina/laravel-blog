@@ -8,6 +8,7 @@
     use App\Http\Controllers\HomeController;
     use App\Http\Controllers\WelcomeController;
     use App\Http\Controllers\CategoryController;
+    use App\Http\Controllers\Blog\PostsController;
     
     /*
     |--------------------------------------------------------------------------
@@ -21,6 +22,7 @@
     */
     
     Route::get('/', [WelcomeController::class, 'index'])->name('index');
+    Route::get('/blogs/{post}', [PostsController::class, 'show'])->name('blog.show');
     
     Auth::routes();
     
