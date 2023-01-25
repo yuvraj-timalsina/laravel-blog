@@ -1,33 +1,36 @@
 <?php
-
-namespace App\Http\Requests\Posts;
-
-use Illuminate\Foundation\Http\FormRequest;
-
-class CreatePostRequest extends FormRequest
-{
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
+    
+    namespace App\Http\Requests\Posts;
+    
+    use Illuminate\Foundation\Http\FormRequest;
+    
+    class CreatePostRequest extends FormRequest
     {
-        return true;
+        /**
+         * Determine if the user is authorized to make this request.
+         *
+         * @return bool
+         */
+        public function authorize()
+        {
+            return TRUE;
+        }
+        
+        
+        /**
+         * Get the validation rules that apply to the request.
+         *
+         * @return array
+         */
+        public function rules()
+        {
+            return [
+                'title' => 'required|unique:posts,title',
+                'content' => 'required',
+                'featured_image' => 'required|image',
+                'category_id' => 'required|exists:categories,id',
+                'tags' => 'required|array',
+                'tags.*' => 'max:255',
+            ];
+        }
     }
-
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-    public function rules()
-    {
-        return [
-            'title' => 'required|unique:posts,title',
-            'content' => 'required',
-            'featured_image' => 'required|image',
-            'category_id' => 'required|exists:categories,id'
-        ];
-    }
-}

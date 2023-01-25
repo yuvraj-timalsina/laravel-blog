@@ -65,4 +65,10 @@ class Post extends Model
         
         return $query->where('title', 'LIKE', "%{$search}%");
     }
+    
+    
+    public function getFeaturedImageAttribute($featured_image)
+    {
+        return asset('/storage/'. $featured_image);
+    }
 }

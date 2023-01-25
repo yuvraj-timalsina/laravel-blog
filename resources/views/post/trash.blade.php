@@ -26,7 +26,7 @@
                             <tr>
                                 <th>{{ $loop->iteration }}</th>
                                 <td>
-                                    <img src="{{ asset('/storage/' . $post->featured_image) }}" alt="" width="65px">
+                                    <img src="{{ $post->featured_image }}" alt="" width="65px">
                                 </td>
                                 <td><a
                                         href="{{ route('categories.edit', $post->category_id) }}">{!! $post->category->name !!}</a>

@@ -40,7 +40,7 @@ class TagController extends Controller
     {
         Tag::create($request->validated());
         toastr()->success('Tag Created Successfully!');
-        return redirect(route('tags.index'));
+        return to_route('tags.index');
     }
 
     /**
@@ -76,7 +76,7 @@ class TagController extends Controller
     {
         $tag->update($request->validated());
         toastr()->success('Tag Updated Successfully!');
-        return redirect(route('tags.index'));
+        return to_route('tags.index');
     }
 
     /**
@@ -93,6 +93,6 @@ class TagController extends Controller
         }
         $tag->delete();
         toastr()->error('Tag Deleted Successfully!');
-        return redirect(route('tags.index'));
+        return to_route('tags.index');
     }
 }

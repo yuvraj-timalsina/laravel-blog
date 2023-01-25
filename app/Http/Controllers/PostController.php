@@ -102,7 +102,7 @@
             /** redirect user to index page */
             toastr()->success('Post Updated Successfully!');
             
-            return back();
+            return to_route('posts.index');
         }
         
         
@@ -131,7 +131,7 @@
             
             toastr()->success('Post Created Successfully!');
             
-            return redirect(route('posts.index'));
+           return to_route('posts.index');
         }
         
         
@@ -171,7 +171,7 @@
                 /** redirect user to trash page */
                 toastr()->success('Post Deleted Successfully!');
                 
-                return redirect(route('posts.trash'));
+                return to_route('posts.trash');
             }
             else {
                 
@@ -181,7 +181,7 @@
             
             toastr()->success('Post Trashed Successfully!');
             
-            return redirect(route('posts.index'));
+            return to_route('posts.index');
         }
         
         

@@ -40,7 +40,7 @@ class CategoryController extends Controller
     {
         Category::create($request->validated());
         toastr()->success('Category Created Successfully!');
-        return redirect(route('categories.index'));
+        return to_route('categories.index');
     }
 
     /**
@@ -76,7 +76,7 @@ class CategoryController extends Controller
     {
         $category->update($request->validated());
         toastr()->success('Category Updated Successfully!');
-        return redirect(route('categories.index'));
+        return to_route('categories.index');
     }
 
     /**
@@ -93,6 +93,6 @@ class CategoryController extends Controller
         }
         $category->delete();
         toastr()->error('Category Deleted Successfully!');
-        return redirect(route('categories.index'));
+        return to_route('categories.index');
     }
 }

@@ -11,7 +11,7 @@
                 @csrf
                 @method('PUT')
                 <div class="mb-2">
-                    <img src="{{ asset('/storage/' . $post->featured_image) }}" alt="" width="225px" id="previewImg">
+                    <img src="{{ $post->featured_image }}" alt="" width="225px" id="previewImg">
                 </div>
                 <div class="mb-3">
                     <label for="featured_image" class="form-label">Featured Image</label>
