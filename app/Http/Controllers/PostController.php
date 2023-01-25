@@ -42,18 +42,6 @@
         
         
         /**
-         * Display the specified resource.
-         *
-         * @param Post $post
-         * @return Response
-         */
-        public function show(Post $post)
-        {
-            //
-        }
-        
-        
-        /**
          * Show the form for editing the specified resource.
          *
          * @param Post $post
@@ -181,7 +169,7 @@
             
             toastr()->success('Post Trashed Successfully!');
             
-            return to_route('posts.index');
+            return to_route('posts.trash');
         }
         
         
@@ -208,6 +196,6 @@
             $this->fetchTrashPost($id)->restore();
             toastr()->success('Post Restored Successfully!');
             
-            return back();
+            return to_route('posts.index');
         }
     }
