@@ -5,7 +5,7 @@
 @endsection
 
 @section('header')
-    <header class="header text-white h-fullscreen pb-80" style="background-image: url({{ asset('/storage/'. $post->featured_image) }});" data-overlay="9">
+    <header class="header text-white h-fullscreen pb-80" style="background-image: url({{ $post->featured_image }});" data-overlay="9">
         <div class="container text-center">
             <div class="row h-100">
                 <div class="col-lg-8 mx-auto align-self-center">
@@ -33,7 +33,7 @@
         <div class="section" id="section-content">
             <div class="container">
                 {!! $post->content !!}
-                 <div class="addthis_inline_share_toolbox"></div>
+                <div class="addthis_inline_share_toolbox"></div>
                 <div class="row">
                     <div class="gap-xy-2 mt-6">
                         @foreach($post->tags as $tag)

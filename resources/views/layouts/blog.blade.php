@@ -21,7 +21,6 @@
 
 <body>
     
-    
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light navbar-stick-dark" data-navbar="sticky">
         <div class="container">
@@ -46,7 +45,6 @@
     @yield('header')
     
     @yield('content')
-    
     
     <!-- Footer -->
     <footer class="footer">
