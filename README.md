@@ -20,7 +20,7 @@ Go to the Project Directory
 ```bash
 cd laravel-blog
 ```
-Create and Configure the Database
+Create and configure the Database
 
 ```bash
 sudo mysql -u <username> -p
