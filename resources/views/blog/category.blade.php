@@ -4,7 +4,7 @@
 @endsection
 <nav class="navbar navbar-expand-lg navbar-light navbar-stick-dark" data-navbar="sticky">
     <div class="container">
-        
+
         <div class="navbar-left">
             <button class="navbar-toggler" type="button">&#9776;</button>
             <a class="navbar-brand" href="{{route('welcome')}}">
@@ -18,9 +18,9 @@
         @guest
             <a class="btn btn-xs btn-round btn-success" href="{{route('login')}}">Login</a>
         @endguest
-    
+
     </div>
-</nav><!-- /.navbar -->
+</nav>
 @section('header')
     <header class="header text-center text-white" style="background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);">
         <div class="container">
@@ -30,10 +30,10 @@
                         {{ $category->name }}
                     </h1>
                     <p class="lead-2 opacity-90 mt-6">Read and get updated on how we progress</p>
-                
+
                 </div>
             </div>
-        
+
         </div>
     </header>
 @endsection
@@ -42,7 +42,7 @@
         <div class="section bg-gray">
             <div class="container">
                 <div class="row">
-                    
+
                     <div class="col-md-8 col-xl-9">
                         <div class="row gap-y">
                             @forelse($posts as $post)
@@ -60,14 +60,14 @@
                                      No result found for query <strong>{{request()->query('search')}}</strong>.
                                 </p>
                             @endforelse
-                        
+
                         </div>
                         {{ $posts->appends(['search'=>request()->query('search')])->links() }}
                     </div>
-                    
-                    
+
+
                 @include('partials.sidebar')
-                
+
                 </div>
             </div>
         </div>
