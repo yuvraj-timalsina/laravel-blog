@@ -18,7 +18,7 @@ class VerifyIsAdmin
     {
         if (!auth()->user()->isAdmin()) {
             toastr()->error('Insufficient Permission!', 'Access Denied!');
-            return to_route('home'););
+            return to_route('home');
         }
         return $next($request);
     }
