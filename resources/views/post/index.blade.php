@@ -36,7 +36,7 @@
                                                 class="badge bg-primary">{{ $tag->name }}</span></a>
                                     @endforeach
                                 </td>
-                                <td>{!! $post->title !!}</td>
+                                <td>{!! Str::words($post->title, 5) !!}</td>
                                 <td>
                                     <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
                                         @csrf
